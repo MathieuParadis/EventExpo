@@ -4,6 +4,7 @@
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
     "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "no-trailing-spaces": "error",
     "eol-last": ["error", "always"],
     "indent": ["error", 2]
   }
