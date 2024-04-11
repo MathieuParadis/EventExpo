@@ -19,6 +19,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
 import DeleteModal from '@/components/DeleteModal'
+import DropDownMenuBtn from './DropDownMenuBtn'
 
 interface Props {
   event: Event
@@ -75,17 +76,14 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
           <div className='mt-auto flex gap-2 pt-3'>
             <button
               onClick={() => alert('Learn more')}
-              className="border border-[var(--primary-color)] focus:outline-none rounded-md text-sm md:text-base bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white p-2 w-1/2"
+              className="border border-[var(--primary-color)] focus:outline-none rounded text-sm md:text-base bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white p-1 w-1/2"
             >Learn more</button>
             {isAdmin ? (
-              <button
-                onClick={openDeleteModal}
-                className="border rounded-md focus:outline-none text-sm md:text-base bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-2 w-1/2"
-              >More actions</button>
+              <DropDownMenuBtn onEdit={() => {}} onDelete={openDeleteModal} />
             ) : (
               <button
                 onClick={() => alert('interested')}
-                className="border rounded-md focus:outline-none text-sm md:text-base bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-2 w-1/2"
+                className="border rounded focus:outline-none text-sm md:text-base bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-1 w-1/2"
               >I&#39;m interested</button>
             )}
           </div>

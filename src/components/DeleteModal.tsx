@@ -27,7 +27,7 @@ const DeleteModal = ({ event, closeDeleteModal }: Props): JSX.Element => {
   })
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center">
+    <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
       {/* overlay */}
       <div className="absolute w-full h-full bg-black opacity-40"></div>
 
