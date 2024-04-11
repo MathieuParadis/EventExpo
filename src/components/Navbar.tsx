@@ -1,12 +1,23 @@
 'use client'
 
+// REACT IMPORTS
+import { useState } from 'react'
+
 // NEXT IMPORTS
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+// ICONS IMPORTS
+import MenuIcon from '@mui/icons-material/Menu'
+
 const Navbar = (): JSX.Element => {
   const pathname = usePathname()
+  const [displayMobileMenu, setDisplayMobileMenu] = useState(false)
+
+  const toggleMobileMenu = (): void => {
+    setDisplayMobileMenu(!displayMobileMenu)
+  }
 
   return (
     <nav>
@@ -37,9 +48,22 @@ const Navbar = (): JSX.Element => {
             </Link>
           </li>
         </ul>
+        <MenuIcon className="md:hidden" onClick={toggleMobileMenu} />
       </div>
 
       {/* Mobile Navigation */}
+      {displayMobileMenu && (
+        <div className="flex flex-col md:hidden bg-white">
+          <Link
+            className={`text-xl p-4 ${pathname === '/events' ? 'bg-[var(--primary-color)] text-white' : ''}`}
+            href="/events">Events
+          </Link>
+          <Link
+            className={`text-xl p-4 w-full ${pathname === '/admin/events' ? 'bg-[var(--primary-color)] text-white' : ''}`}
+            href="/admin/events">Dashboard
+          </Link>
+        </div>
+      )}
     </nav>
   )
 }
