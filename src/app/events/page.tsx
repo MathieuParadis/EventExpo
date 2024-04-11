@@ -11,7 +11,7 @@ export default async function EventsPage() {
     <main className="bg-white grow p-4 md:px-10 lg:px-20">
       <div className="grid grid-cols-4 gap-10">
         {events != null && events.map((event) => (
-          <EventCard event={event} />
+          <EventCard key={event.id} event={event} />
         ))}
       </div>
     </main>

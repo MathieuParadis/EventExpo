@@ -10,17 +10,17 @@ interface Props {
 
 const EventCard = ({ event }: Props): JSX.Element => {
   return (
-    <div key={event.id} className="flex sm:flex-col gap-2 border-2 border-[var(--primary-color)] rounded-lg overflow-hidden h-[350px]">
+    <div key={event.id} className="flex sm:flex-col border-2 rounded-lg overflow-hidden h-[350px]">
       <Image
-        src={event.image ?? "/defaultEvent.png"}
+        src={event.image ?? '/defaultEvent.png'}
         alt="Vercel Logo"
         className="w-full h-[60%] object-cover"
         width={450}
         height={450}
       />
-      <div>
-        <p>{event.title}</p>
-        <p>{new Date(event.startTime).toISOString()}</p>
+      <div className="flex flex-col gap-2 p-2">
+        <p className='text-xl font-semibold'>{event.title}</p>
+        <p className='text-base font-medium text-blue-900'>{new Date(event.startTime).toISOString()}</p>
       </div>
     </div>
   )
