@@ -5,7 +5,6 @@ import type { Event } from '@prisma/client'
 import { fetchEvents } from '@/db/queries/events'
 
 // COMPONENTS IMPORTS
-import DeleteModal from '@/components/DeleteModal'
 import EventCard from '@/components/EventCard'
 
 export default async function AdminEventsPage() {
@@ -18,7 +17,6 @@ export default async function AdminEventsPage() {
           <EventCard key={event.id} event={event} isAdmin={true} />
         ))}
       </div>
-      <DeleteModal />
     </main>
   )
 }
