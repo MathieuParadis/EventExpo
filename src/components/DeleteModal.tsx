@@ -1,9 +1,7 @@
-'use client'
-
 // REACT IMPORTS
 import { useEffect } from 'react'
 
-// PRISMA IMPORTS
+// TYPES IMPORTS
 import type { Event } from '@prisma/client'
 
 interface Props {

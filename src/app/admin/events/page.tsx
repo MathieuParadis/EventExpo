@@ -1,6 +1,3 @@
-// PRISMA IMPORTS
-import type { Event } from '@prisma/client'
-
 // DB IMPORTS
 import { fetchEvents } from '@/db/queries/events'
 

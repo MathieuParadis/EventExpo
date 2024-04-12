@@ -12,7 +12,7 @@ import moment from 'moment'
 // MUI IMPORTS
 import Button from '@mui/material/Button'
 
-// PRISMA IMPORTS
+// TYPES IMPORTS
 import type { Event } from '@prisma/client'
 
 // ICONS IMPORTS
