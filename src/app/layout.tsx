@@ -1,14 +1,11 @@
 // NEXT IMPORTS
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 
 // COMPONENTS IMPORTS
 import Navbar from '@/components/Navbar'
 
 // STYLES IMPORTS
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Event\'Expo: Your Gateway to Exciting Gatherings',
@@ -22,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="flex flex-col min-h-screen w-full">
-          <Navbar />
+      <body className="h-screen w-screen overflow-hidden">
+        <Navbar />
+        <div className="h-[calc(100%-var(--navbar-height))] w-full overflow-auto z-0">
           {children}
         </div>
       </body>

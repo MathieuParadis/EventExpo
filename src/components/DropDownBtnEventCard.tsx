@@ -79,12 +79,10 @@ const DropDownBtnEventCard = ({ onEdit, onDelete }: Props): JSX.Element => {
   }
 
   return (
-    <div className="w-1/2"
-    >
+    <>
       <Button
-        id="demo-customized-button"
-        className="border rounded focus:outline-none text-sm md:text-base bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white w-full"
-        style={{ textTransform: 'capitalize' }}
+        className="rounded focus:outline-none text-sm md:text-base bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white w-1/2"
+        style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)', padding: '4px' }}
         aria-controls={open ? 'demo-customized-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
@@ -112,7 +110,7 @@ const DropDownBtnEventCard = ({ onEdit, onDelete }: Props): JSX.Element => {
           Delete
         </MenuItem>
       </StyledMenu>
-    </div>
+    </>
   )
 }
 

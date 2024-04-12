@@ -9,6 +9,9 @@ import Image from 'next/image'
 // MOMENT IMPORT
 import moment from 'moment'
 
+// MUI IMPORTS
+import Button from '@mui/material/Button'
+
 // PRISMA IMPORTS
 import type { Event } from '@prisma/client'
 
@@ -20,6 +23,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 // COMPONENTS IMPORTS
 import DeleteModal from '@/components/DeleteModal'
 import DropDownMenuBtn from './DropDownBtnEventCard'
+import EventDrawerBtn from './EventDrawerBtn'
 
 interface Props {
   event: Event
@@ -45,7 +49,7 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
       {displayDeleteModal && isAdmin && <DeleteModal event={event} closeDeleteModal={closeDeleteModal} />}
 
       {/* EventCard */}
-      <div className="flex flex-col sm:flex-row md:flex-col border-2 rounded-lg overflow-hidden h-[350px] sm:h-[220px] md:h-[420px] lg:h-[490px]">
+      <div className="flex flex-col sm:flex-row md:flex-col border-2 rounded-lg drop-shadow-lg overflow-hidden h-[350px] sm:h-[220px] md:h-[420px] lg:h-[490px]">
         <Image
           src={event.image ?? '/defaultEvent.png'}
           alt="Vercel Logo"
@@ -74,17 +78,17 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
 
           {/* buttons */}
           <div className='mt-auto flex gap-2 pt-3 text-sm md:text-base'>
-            <button
-              onClick={() => alert('Learn more')}
-              className="border border-[var(--primary-color)] focus:outline-none rounded bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white p-1 w-1/2"
-            >Learn more</button>
+            <EventDrawerBtn />
             {isAdmin ? (
               <DropDownMenuBtn onEdit={() => {}} onDelete={openDeleteModal} />
             ) : (
-              <button
-                onClick={() => alert('interested')}
-                className="border rounded focus:outline-none bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-1 w-1/2"
-              >I&#39;m interested</button>
+              <Button
+                className='focus:outline-none rounded bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-1 w-1/2'
+                style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)' }}
+                onClick={() => alert('interestec')}
+              >
+              I&#39;m interested
+              </Button>
             )}
           </div>
         </div>

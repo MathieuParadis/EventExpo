@@ -22,7 +22,7 @@ const Navbar = (): JSX.Element => {
   return (
     <nav>
       {/* Navbar */}
-      <div className="flex justify-between items-center w-full p-4 md:px-10 lg:px-20 bg-black text-white">
+      <div className="flex justify-between items-center h-[var(--navbar-height)] w-full p-4 md:px-10 lg:px-20 bg-black text-white">
         <div className="flex items-center cursor-default">
           <Image
             src="/logo.svg"
