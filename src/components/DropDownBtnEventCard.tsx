@@ -56,7 +56,7 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }))
 
-const DropDownMenuBtn = ({ onEdit, onDelete }: Props): JSX.Element => {
+const DropDownBtnEventCard = ({ onEdit, onDelete }: Props): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
 
@@ -116,4 +116,4 @@ const DropDownMenuBtn = ({ onEdit, onDelete }: Props): JSX.Element => {
   )
 }
 
-export default DropDownMenuBtn
+export default DropDownBtnEventCard

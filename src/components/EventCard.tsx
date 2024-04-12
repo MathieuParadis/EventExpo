@@ -19,7 +19,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
 import DeleteModal from '@/components/DeleteModal'
-import DropDownMenuBtn from './DropDownMenuBtn'
+import DropDownMenuBtn from './DropDownBtnEventCard'
 
 interface Props {
   event: Event
@@ -31,12 +31,12 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
 
   const openDeleteModal = ():void => {
     setDisplayDeleteModal(true)
-    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
   }
 
   const closeDeleteModal = ():void => {
     setDisplayDeleteModal(false)
-    document.body.style.overflow = 'auto'
+    document.documentElement.style.overflow = 'visible'
   }
 
   return (
