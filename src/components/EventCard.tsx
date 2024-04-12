@@ -49,7 +49,7 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
       {displayDeleteModal && isAdmin && <DeleteModal event={event} closeDeleteModal={closeDeleteModal} />}
 
       {/* EventCard */}
-      <div className="flex flex-col sm:flex-row md:flex-col border-2 rounded-lg overflow-hidden h-[350px] sm:h-[220px] md:h-[420px] lg:h-[490px]">
+      <div className="flex flex-col sm:flex-row md:flex-col border-2 rounded-lg drop-shadow-lg overflow-hidden h-[350px] sm:h-[220px] md:h-[420px] lg:h-[490px]">
         <Image
           src={event.image ?? '/defaultEvent.png'}
           alt="Vercel Logo"
@@ -88,7 +88,7 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
                 onClick={() => alert('interestec')}
               >
               I&#39;m interested
-            </Button>
+              </Button>
             )}
           </div>
         </div>
