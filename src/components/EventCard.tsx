@@ -20,6 +20,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 // COMPONENTS IMPORTS
 import DeleteModal from '@/components/DeleteModal'
 import DropDownMenuBtn from './DropDownBtnEventCard'
+import AnchorTemporaryDrawer from './EventDrawer'
 
 interface Props {
   event: Event
@@ -74,10 +75,11 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
 
           {/* buttons */}
           <div className='mt-auto flex gap-2 pt-3 text-sm md:text-base'>
-            <button
+            {/* <button
               onClick={() => alert('Learn more')}
               className="border border-[var(--primary-color)] focus:outline-none rounded bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white p-1 w-1/2"
-            >Learn more</button>
+            >Learn more</button> */}
+            <AnchorTemporaryDrawer />
             {isAdmin ? (
               <DropDownMenuBtn onEdit={() => {}} onDelete={openDeleteModal} />
             ) : (
