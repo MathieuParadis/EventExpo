@@ -12,7 +12,7 @@ import moment from 'moment'
 // MUI IMPORTS
 import Button from '@mui/material/Button'
 
-// PRISMA IMPORTS
+// TYPES IMPORTS
 import type { Event } from '@prisma/client'
 
 // ICONS IMPORTS
@@ -21,7 +21,8 @@ import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutli
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
-import DeleteModal from '@/components/DeleteModal'
+import EditEventModal from './AddEditEventModal'
+import DeleteEventModal from '@/components/DeleteEventModal'
 import DropDownMenuBtn from './DropDownBtnEventCard'
 import EventDrawerBtn from './EventDrawerBtn'
 
@@ -32,21 +33,31 @@ interface Props {
 
 const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
   const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
+  const [displayEditModal, setDisplayEditModal] = useState(false)
 
   const openDeleteModal = ():void => {
     setDisplayDeleteModal(true)
-    document.documentElement.style.overflow = 'hidden'
   }
 
   const closeDeleteModal = ():void => {
     setDisplayDeleteModal(false)
-    document.documentElement.style.overflow = 'visible'
+  }
+
+  const openEditModal = ():void => {
+    setDisplayEditModal(true)
+  }
+
+  const closeEditModal = ():void => {
+    setDisplayEditModal(false)
   }
 
   return (
     <>
       {/* Delete Modal */}
-      {displayDeleteModal && isAdmin && <DeleteModal event={event} closeDeleteModal={closeDeleteModal} />}
+      {displayDeleteModal && isAdmin && <DeleteEventModal event={event} closeModal={closeDeleteModal} />}
+
+      {/* Edit Modal */}
+      {displayEditModal && isAdmin && <EditEventModal event={event} closeModal={closeEditModal} />}
 
       {/* EventCard */}
       <div className="flex flex-col sm:flex-row md:flex-col border-2 rounded-lg drop-shadow-lg overflow-hidden h-[350px] sm:h-[220px] md:h-[420px] lg:h-[490px]">
@@ -80,7 +91,7 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
           <div className='mt-auto flex gap-2 pt-3 text-sm md:text-base'>
             <EventDrawerBtn />
             {isAdmin ? (
-              <DropDownMenuBtn onEdit={() => {}} onDelete={openDeleteModal} />
+              <DropDownMenuBtn onEdit={openEditModal} onDelete={openDeleteModal} />
             ) : (
               <Button
                 className='focus:outline-none rounded bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-1 w-1/2'
@@ -94,7 +105,6 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
         </div>
       </div>
     </>
-
   )
 }
 

@@ -1,22 +1,20 @@
-'use client'
-
 // REACT IMPORTS
 import { useEffect } from 'react'
 
-// PRISMA IMPORTS
+// TYPES IMPORTS
 import type { Event } from '@prisma/client'
 
 interface Props {
   event: Event
-  closeDeleteModal: () => void
+  closeModal: () => void
 }
 
-const DeleteModal = ({ event, closeDeleteModal }: Props): JSX.Element => {
+const DeleteEventModal = ({ event, closeModal }: Props): JSX.Element => {
   // Close modal on Escape
   useEffect((): (() => void) => {
     const close = (e: KeyboardEvent): void => {
       if (e.key === 'Escape') {
-        closeDeleteModal()
+        closeModal()
       }
     }
 
@@ -45,7 +43,7 @@ const DeleteModal = ({ event, closeDeleteModal }: Props): JSX.Element => {
             className="w-1/2 md:w-[150px] border rounded focus:outline-none bg-red-500 hover:bg-red-600 text-white p-2"
           >Yes, delete</button>
           <button
-            onClick={closeDeleteModal}
+            onClick={closeModal}
             className="w-1/2 md:w-[150px] border rounded focus:outline-none bg-gray-400 hover:bg-gray-500 text-white p-2"
           >No, cancel</button>
         </div>
@@ -54,4 +52,4 @@ const DeleteModal = ({ event, closeDeleteModal }: Props): JSX.Element => {
   )
 }
 
-export default DeleteModal
+export default DeleteEventModal

@@ -1,4 +1,4 @@
-// PRISMA IMPORTS
+// TYPES IMPORTS
 import type { Event } from '@prisma/client'
 
 // DB IMPORTS
