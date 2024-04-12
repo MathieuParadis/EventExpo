@@ -94,7 +94,6 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
         </div>
       </div>
     </>
-
   )
 }
 
