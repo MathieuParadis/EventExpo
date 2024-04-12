@@ -45,7 +45,7 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
       {displayDeleteModal && isAdmin && <DeleteModal event={event} closeDeleteModal={closeDeleteModal} />}
 
       {/* EventCard */}
-      <div className="flex flex-col sm:flex-row md:flex-col border-2 rounded-lg overflow-hidden h-[330px] sm:h-[220px] md:h-[420px] lg:h-[490px]">
+      <div className="flex flex-col sm:flex-row md:flex-col border-2 rounded-lg overflow-hidden h-[350px] sm:h-[220px] md:h-[420px] lg:h-[490px]">
         <Image
           src={event.image ?? '/defaultEvent.png'}
           alt="Vercel Logo"
@@ -73,17 +73,17 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
           </div>
 
           {/* buttons */}
-          <div className='mt-auto flex gap-2 pt-3'>
+          <div className='mt-auto flex gap-2 pt-3 text-sm md:text-base'>
             <button
               onClick={() => alert('Learn more')}
-              className="border border-[var(--primary-color)] focus:outline-none rounded text-sm md:text-base bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white p-1 w-1/2"
+              className="border border-[var(--primary-color)] focus:outline-none rounded bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white p-1 w-1/2"
             >Learn more</button>
             {isAdmin ? (
               <DropDownMenuBtn onEdit={() => {}} onDelete={openDeleteModal} />
             ) : (
               <button
                 onClick={() => alert('interested')}
-                className="border rounded focus:outline-none text-sm md:text-base bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-1 w-1/2"
+                className="border rounded focus:outline-none bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-1 w-1/2"
               >I&#39;m interested</button>
             )}
           </div>
