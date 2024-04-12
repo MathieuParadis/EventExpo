@@ -7,17 +7,15 @@ import { useEffect, useState } from 'react'
 import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
 
-const EventDrawer = (): JSX.Element => {
+const EventDrawerBtn = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
 
   const openDrawer = (): void => {
     setIsOpen(true)
-    document.documentElement.style.overflow = 'hidden'
   }
 
   const closeDrawer = (): void => {
     setIsOpen(false)
-    document.documentElement.style.overflow = 'visible'
   }
 
   // Close drawer on Escape
@@ -35,33 +33,34 @@ const EventDrawer = (): JSX.Element => {
   })
 
   return (
-    <div>
+    <>
       <Button
-        style={{ textTransform: 'capitalize' }}
+        className='focus:outline-none rounded bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white p-1 w-1/2'
+        style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)' }}
         onClick={openDrawer}
       >
         Learn more
       </Button>
       <Drawer
-        className='top-[69px] bg-black opacity-40'
+        className='top-[var(--navbar-height)]'
         anchor="right"
         open={isOpen}
-        // onClose={closeDrawer}
+        onClose={closeDrawer}
         PaperProps={{
-          className: "top-[69px]"
+          className: "top-[var(--navbar-height)]"
         }}
         slotProps={{
           backdrop: {
-            invisible: true
+            sx: {top: 'var(--navbar-height)'}
           }
         }}
       >
-        <div className="w-1/2">
+        <div>
           content
         </div>
       </Drawer>
-    </div>
+    </>
   )
 }
 
-export default EventDrawer
+export default EventDrawerBtn
