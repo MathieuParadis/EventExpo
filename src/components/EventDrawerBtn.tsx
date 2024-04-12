@@ -47,7 +47,7 @@ const EventDrawerBtn = (): JSX.Element => {
         open={isOpen}
         onClose={closeDrawer}
         PaperProps={{
-          className: 'top-[var(--navbar-height)]'
+          className: 'h-[calc(100%-var(--navbar-height))] top-[var(--navbar-height)] w-full sm:w-[100%] md:w-[90%] lg:w-[80%] xl:w-[72%] rounded-tl-md rounded-bl-md'
         }}
         slotProps={{
           backdrop: {
