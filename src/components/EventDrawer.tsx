@@ -1,46 +1,67 @@
-import * as React from 'react'
+'use client'
+
+// REACT IMPORTS
+import { useEffect, useState } from 'react'
+
+// MUI IMPORTS
 import Drawer from '@mui/material/Drawer'
 import Button from '@mui/material/Button'
 
-type Anchor = 'top' | 'left' | 'bottom' | 'right';
+const EventDrawer = (): JSX.Element => {
+  const [isOpen, setIsOpen] = useState(false)
 
-export default function AnchorTemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  })
+  const openDrawer = (): void => {
+    setIsOpen(true)
+    document.documentElement.style.overflow = 'hidden'
+  }
 
-  const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-      (event: React.KeyboardEvent | React.MouseEvent) => {
-        if (
-          event.type === 'keydown' &&
-        ((event as React.KeyboardEvent).key === 'Tab' ||
-          (event as React.KeyboardEvent).key === 'Shift')
-        ) {
-          return
-        }
+  const closeDrawer = (): void => {
+    setIsOpen(false)
+    document.documentElement.style.overflow = 'visible'
+  }
 
-        setState({ ...state, [anchor]: open })
+  // Close drawer on Escape
+  useEffect((): (() => void) => {
+    const close = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape') {
+        closeDrawer()
       }
+    }
+
+    window.addEventListener('keydown', close)
+    return (): void => {
+      window.removeEventListener('keydown', close)
+    }
+  })
 
   return (
     <div>
       <Button
         style={{ textTransform: 'capitalize' }}
-        onClick={toggleDrawer('right', true)}
+        onClick={openDrawer}
       >
-          Learn more
+        Learn more
       </Button>
       <Drawer
+        className='top-[69px] bg-black opacity-40'
         anchor="right"
-        open={state['right']}
-        onClose={toggleDrawer('right', false)}
+        open={isOpen}
+        // onClose={closeDrawer}
+        PaperProps={{
+          className: "top-[69px]"
+        }}
+        slotProps={{
+          backdrop: {
+            invisible: true
+          }
+        }}
       >
-        content
+        <div className="w-1/2">
+          content
+        </div>
       </Drawer>
     </div>
   )
 }
+
+export default EventDrawer
