@@ -53,7 +53,7 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
         <Image
           src={event.image ?? '/defaultEvent.png'}
           alt="Vercel Logo"
-          className="w-full sm:w-[45%] md:w-full h-[40%] sm:h-full md:h-[45%] object-cover"
+          className="w-full sm:w-[45%] md:w-full h-[40%] sm:h-full md:h-[45%] object-cover border-b-2"
           width={450}
           height={450}
         />
