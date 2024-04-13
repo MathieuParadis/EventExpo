@@ -1,8 +1,5 @@
 'use client'
 
-// REACT IMPORTS
-import { useEffect } from 'react'
-
 // MUI IMPORTS
 import Button from '@mui/material/Button'
 
@@ -19,23 +16,9 @@ const DeleteModal = (): JSX.Element => {
     dispatch(closeDeleteEventModal())
   }
 
-  // Close modal on Escape
-  useEffect((): (() => void) => {
-    const close = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') {
-        closeDeleteModal()
-      }
-    }
-
-    window.addEventListener('keydown', close)
-    return (): void => {
-      window.removeEventListener('keydown', close)
-    }
-  })
-
   if (isDeleteEvent && event != null) {
     return (
-      <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
+      <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-[9999]">
         {/* overlay */}
         <div className="absolute w-full h-full bg-black opacity-40"></div>
 

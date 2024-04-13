@@ -36,7 +36,6 @@ export const eventModalsSlice = createSlice({
     },
     closeDeleteEventModal(state) {
       state.isDeleteEvent = false
-      state.event = null
     },
     openAddEventModal(state) {
       state.isAddEvent = true
@@ -48,7 +47,6 @@ export const eventModalsSlice = createSlice({
     closeAddEditEventModal(state) {
       state.isAddEvent = false
       state.isEditEvent = false
-      state.event = null
     },
     openReadEventModal(state, action: PayloadAction<Event>) {
       state.isReadEvent = true

@@ -1,8 +1,5 @@
 'use client'
 
-// REACT IMPORTS
-import { useEffect } from 'react'
-
 // MOMENT IMPORT
 import moment from 'moment'
 
@@ -20,6 +17,9 @@ import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutli
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined'
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
+// COMPONENTS IMPORTS
+import DeleteEventBtn from './DeleteEventBtn'
+
 const EventDrawer = (): JSX.Element => {
   const dispatch = useAppDispatch()
   const eventModals = useAppSelector((state) => state.modals)
@@ -28,20 +28,6 @@ const EventDrawer = (): JSX.Element => {
   const closeReadModal = ():void => {
     dispatch(closeReadEventModal())
   }
-
-  // Close modal on Escape
-  useEffect((): (() => void) => {
-    const close = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') {
-        closeReadModal()
-      }
-    }
-
-    window.addEventListener('keydown', close)
-    return (): void => {
-      window.removeEventListener('keydown', close)
-    }
-  })
 
   return (
     <Drawer
@@ -87,7 +73,10 @@ const EventDrawer = (): JSX.Element => {
             </div>
             <Divider className="hidden sm:block" orientation="vertical" flexItem />
             <Divider className="sm:hidden" />
-            <div className="grow">buttons</div>
+            <div className="grow flex flex-col gap-4 md:gap-5 lg:gap-6">
+
+              <DeleteEventBtn event={event} />
+            </div>
           </div>
         </div>
       )}

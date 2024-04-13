@@ -1,8 +1,5 @@
 'use client'
 
-// REACT IMPORTS
-import { useEffect } from 'react'
-
 // HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
 import { closeAddEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
@@ -15,20 +12,6 @@ const AddEditEventModal = (): JSX.Element => {
   const closeAddEditModal = ():void => {
     dispatch(closeAddEditEventModal())
   }
-
-  // Close modal on Escape
-  useEffect((): (() => void) => {
-    const close = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') {
-        closeAddEditModal()
-      }
-    }
-
-    window.addEventListener('keydown', close)
-    return (): void => {
-      window.removeEventListener('keydown', close)
-    }
-  })
 
   if (isAddEvent || isEditEvent) {
     return (
