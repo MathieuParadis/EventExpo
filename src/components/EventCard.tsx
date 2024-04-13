@@ -22,9 +22,13 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
 import EditEventModal from './AddEditEventModal'
-import DeleteEventModal from '@/components/DeleteEventModal'
+// import DeleteEventModal from '@/components/DeleteEventModal'
 import DropDownMenuBtn from './DropDownBtnEventCard'
 import EventDrawerBtn from './EventDrawerBtn'
+
+// HOOKS IMPORTS
+import { useAppDispatch } from '@/lib/hooks'
+import { openDeleteEventModal } from '@/lib/features/eventModals/eventModalsSlice'
 
 interface Props {
   event: Event
@@ -32,15 +36,11 @@ interface Props {
 }
 
 const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
-  const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
+  const dispatch = useAppDispatch()
   const [displayEditModal, setDisplayEditModal] = useState(false)
 
   const openDeleteModal = ():void => {
-    setDisplayDeleteModal(true)
-  }
-
-  const closeDeleteModal = ():void => {
-    setDisplayDeleteModal(false)
+    dispatch(openDeleteEventModal(event))
   }
 
   const openEditModal = ():void => {
@@ -53,9 +53,6 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
 
   return (
     <>
-      {/* Delete Modal */}
-      {displayDeleteModal && isAdmin && <DeleteEventModal event={event} closeModal={closeDeleteModal} />}
-
       {/* Edit Modal */}
       {displayEditModal && isAdmin && <EditEventModal event={event} closeModal={closeEditModal} />}
 

@@ -3,8 +3,9 @@
 // REACT IMPORTS
 import { useEffect } from 'react'
 
+// HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
-import { closeDeleteModal } from '@/lib/features/eventModals/eventModalsSlice'
+import { closeDeleteEventModal } from '@/lib/features/eventModals/eventModalsSlice'
 
 const DeleteModal = (): JSX.Element => {
   const dispatch = useAppDispatch()
@@ -14,7 +15,7 @@ const DeleteModal = (): JSX.Element => {
   useEffect((): (() => void) => {
     const close = (e: KeyboardEvent): void => {
       if (e.key === 'Escape') {
-        dispatch(closeDeleteModal())
+        dispatch(closeDeleteEventModal())
       }
     }
 
@@ -44,7 +45,7 @@ const DeleteModal = (): JSX.Element => {
               className="w-1/2 md:w-[150px] border rounded focus:outline-none bg-red-500 hover:bg-red-600 text-white p-2"
             >Yes, delete</button>
             <button
-              onClick={() => dispatch(closeDeleteModal())}
+              onClick={() => dispatch(closeDeleteEventModal())}
               className="w-1/2 md:w-[150px] border rounded focus:outline-none bg-gray-400 hover:bg-gray-500 text-white p-2"
             >No, cancel</button>
           </div>

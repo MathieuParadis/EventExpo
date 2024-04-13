@@ -28,18 +28,18 @@ export const eventModalsSlice = createSlice({
   name: 'modals',
   initialState,
   reducers: {
-    openDeleteModal(state, action: PayloadAction<Event>) {
+    openDeleteEventModal(state, action: PayloadAction<Event>) {
       state.isDeleteEvent = true
       state.event = action.payload
     },
-    closeDeleteModal(state) {
+    closeDeleteEventModal(state) {
       state.isDeleteEvent = true
       state.event = null
     }
   }
 })
 
-export const { openDeleteModal, closeDeleteModal } = eventModalsSlice.actions
+export const { openDeleteEventModal, closeDeleteEventModal } = eventModalsSlice.actions
 
 export const selectmodalsState = (state: RootState): EventModalsType => state.modals
 
