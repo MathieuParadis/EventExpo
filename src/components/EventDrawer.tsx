@@ -1,5 +1,11 @@
 'use client'
 
+// REACT IMPORTS
+import { useEffect, useState } from 'react'
+
+// NEXT IMPORTS
+import { usePathname } from 'next/navigation'
+
 // MOMENT IMPORT
 import moment from 'moment'
 
@@ -21,13 +27,19 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 import DeleteEventBtn from './DeleteEventBtn'
 
 const EventDrawer = (): JSX.Element => {
+  const pathname = usePathname()
   const dispatch = useAppDispatch()
   const eventModals = useAppSelector((state) => state.modals)
   const { isReadEvent, event } = eventModals
+  const [isAdmin, setIsAdmin] = useState(pathname === '/admin/events')
 
   const closeReadModal = ():void => {
     dispatch(closeReadEventModal())
   }
+
+  useEffect(() => {
+    setIsAdmin(pathname === '/admin/events')
+  }, [pathname])
 
   return (
     <Drawer
@@ -74,8 +86,7 @@ const EventDrawer = (): JSX.Element => {
             <Divider className="hidden sm:block" orientation="vertical" flexItem />
             <Divider className="sm:hidden" />
             <div className="grow flex flex-col gap-4 md:gap-5 lg:gap-6">
-
-              <DeleteEventBtn event={event} />
+              {isAdmin && <DeleteEventBtn event={event} />}
             </div>
           </div>
         </div>
