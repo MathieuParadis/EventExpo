@@ -18,9 +18,9 @@ export interface EventModalsType {
 // Initial state
 const initialState: EventModalsType = {
   isAddEvent: false,
-	isEditEvent: false,
-	isDeleteEvent: false,
-	event: null
+  isEditEvent: false,
+  isDeleteEvent: false,
+  event: null
 }
 
 // Actual Slice
@@ -32,7 +32,7 @@ export const eventModalsSlice = createSlice({
       state.isDeleteEvent = true
       state.event = action.payload
     },
-		closeDeleteModal(state) {
+    closeDeleteModal(state) {
       state.isDeleteEvent = true
       state.event = null
     }
