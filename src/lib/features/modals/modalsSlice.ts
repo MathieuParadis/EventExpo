@@ -8,6 +8,10 @@ import type { RootState } from '@/lib/store'
 // import type { Event } from '@prisma/client'
 // import type { GameModeType } from '../../types/gameModeTypes'
 
+interface modals {
+  isDeleteEvent: boolean
+}
+
 // Initial state
 const initialState: any = {
   isDeleteEvent: false
@@ -36,6 +40,6 @@ export const modalsSlice = createSlice({
 
 // export const { handleStartGame, handleOpenRanking, handleBackToMainMenu } = modalsSlice.actions
 
-export const selectmodalsState = (state: RootState): any => state.modals
+export const selectmodalsState = (state: RootState): modals => state.modals
 
 export default modalsSlice.reducer
