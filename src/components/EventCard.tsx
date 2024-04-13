@@ -22,7 +22,6 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
 import EditEventModal from './AddEditEventModal'
-// import DeleteEventModal from '@/components/DeleteEventModal'
 import DropDownMenuBtn from './DropDownBtnEventCard'
 import EventDrawerBtn from './EventDrawerBtn'
 

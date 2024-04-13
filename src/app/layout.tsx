@@ -2,7 +2,7 @@
 import type { Metadata } from 'next'
 
 // COMPONENTS IMPORTS
-import DeleteModal from '@/components/DeleteMod'
+import DeleteEventModal from '@/components/DeleteEventModal'
 import Navbar from '@/components/Navbar'
 
 // STORE PROVIDER IMPORT
@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <StoreProvider>
         <body className="h-screen w-screen overflow-hidden">
-          <DeleteModal />
+          <DeleteEventModal />
           <Navbar />
           <div className="h-[calc(100%-var(--navbar-height))] w-full overflow-auto z-0">
             {children}
