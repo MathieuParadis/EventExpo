@@ -3,7 +3,7 @@ import { fetchEvents } from '@/db/queries/events'
 
 // COMPONENTS IMPORTS
 import EventCard from '@/components/EventCard'
-import AddBtn from '@/components/AddEventBtn'
+import AddBtn from '@/components/buttons/AddEventBtn'
 
 export default async function AdminEventsPage() {
   const allEvents = await fetchEvents()

@@ -18,8 +18,8 @@ import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutli
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
-import DropDownMenuBtn from './DropDownBtnEventCard'
-import ReadEventBtn from './ReadEventBtn'
+import DropDownBtn from './DropDownBtn'
+import ReadEventBtn from './buttons/ReadEventBtn'
 
 // HOOKS IMPORTS
 import { useAppDispatch } from '@/lib/hooks'
@@ -83,10 +83,10 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
           <div className='mt-auto flex gap-2 pt-3 text-sm md:text-base'>
             <ReadEventBtn onClick={openReadModal} />
             {isAdmin ? (
-              <DropDownMenuBtn onEdit={openEditModal} onDelete={openDeleteModal} />
+              <DropDownBtn onEdit={openEditModal} onDelete={openDeleteModal} />
             ) : (
               <Button
-                className='focus:outline-none rounded bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white p-1 w-1/2'
+                className='focus:outline-none rounded bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white py-1 px-2 w-1/2'
                 style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)' }}
                 onClick={() => alert('interestec')}
               >

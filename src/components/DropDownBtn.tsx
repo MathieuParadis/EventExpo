@@ -56,7 +56,7 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }))
 
-const DropDownBtnEventCard = ({ onEdit, onDelete }: Props): JSX.Element => {
+const DropDownBtn = ({ onEdit, onDelete }: Props): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
 
@@ -82,7 +82,7 @@ const DropDownBtnEventCard = ({ onEdit, onDelete }: Props): JSX.Element => {
     <>
       <Button
         className="rounded focus:outline-none text-sm md:text-base bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white w-1/2"
-        style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)', padding: '4px' }}
+        style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)', padding: '4px 8px' }}
         aria-controls={open ? 'demo-customized-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
@@ -114,4 +114,4 @@ const DropDownBtnEventCard = ({ onEdit, onDelete }: Props): JSX.Element => {
   )
 }
 
-export default DropDownBtnEventCard
+export default DropDownBtn

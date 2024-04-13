@@ -2,9 +2,9 @@
 import type { Metadata } from 'next'
 
 // COMPONENTS IMPORTS
-import AddEditEventModal from '@/components/AddEditEventModal'
-import DeleteEventModal from '@/components/DeleteEventModal'
-import EventDrawer from '@/components/EventDrawer'
+import AddEditEventModal from '@/components/modals/AddEditEventModal'
+import DeleteEventModal from '@/components/modals/DeleteEventModal'
+import EventDrawer from '@/components/modals/EventDrawer'
 import Navbar from '@/components/Navbar'
 
 // STORE PROVIDER IMPORT

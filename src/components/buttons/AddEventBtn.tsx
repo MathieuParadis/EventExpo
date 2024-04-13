@@ -17,7 +17,7 @@ const AddEventBtn = (): JSX.Element => {
   return (
     <div className="flex pb-4">
       <Button
-        className='focus:outline-none rounded bg-sky-800 hover:bg-sky-900 text-white p-1 w-[150px] ml-auto'
+        className='focus:outline-none rounded bg-sky-800 hover:bg-sky-900 text-white py-1 px-2 w-[150px] ml-auto'
         style={{ textTransform: 'capitalize' }}
         onClick={openAddModal}
       >

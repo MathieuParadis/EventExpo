@@ -24,8 +24,8 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined'
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
-import DeleteEventBtn from './DeleteEventBtn'
-import EditEventBtn from './EditEventBtn'
+import DeleteEventBtn from '../buttons/DeleteEventBtn'
+import EditEventBtn from '../buttons/EditEventBtn'
 
 const EventDrawer = (): JSX.Element => {
   const pathname = usePathname()
