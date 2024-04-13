@@ -13,6 +13,7 @@ import { closeDeleteEventModal } from '@/lib/features/eventModals/eventModalsSli
 const DeleteModal = (): JSX.Element => {
   const dispatch = useAppDispatch()
   const eventModals = useAppSelector((state) => state.modals)
+  const { isDeleteEvent, event } = eventModals
 
   const closeDeleteModal = ():void => {
     dispatch(closeDeleteEventModal())
@@ -32,7 +33,7 @@ const DeleteModal = (): JSX.Element => {
     }
   })
 
-  if (eventModals.isDeleteEvent && eventModals.event != null) {
+  if (isDeleteEvent && event != null) {
     return (
       <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
         {/* overlay */}
@@ -42,7 +43,7 @@ const DeleteModal = (): JSX.Element => {
         <div className="absolute flex flex-col gap-10 md:gap-16 justify-center items-center w-[80%] md:w-[650px] h-fit md:h-[330px] bg-white rounded-md p-2 md:p-4">
           <div className="flex flex-col gap-5 text-2xl md:text-3xl lg:text-4xl font-medium text-center">
             <p>You are about to delete the event<br></br>
-              <span className="font-semibold text-[var(--primary-color)]">{eventModals.event.title}</span>
+              <span className="font-semibold text-[var(--primary-color)]">{event.title}</span>
             </p>
             <p>Are you sure?</p>
           </div>

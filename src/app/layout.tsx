@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 
 // COMPONENTS IMPORTS
+import AddEditEventModal from '@/components/AddEditEventModal'
 import DeleteEventModal from '@/components/DeleteEventModal'
 import Navbar from '@/components/Navbar'
 
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <StoreProvider>
         <body className="h-screen w-screen overflow-hidden">
+          <AddEditEventModal />
           <DeleteEventModal />
           <Navbar />
           <div className="h-[calc(100%-var(--navbar-height))] w-full overflow-auto z-0">

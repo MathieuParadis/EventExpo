@@ -1,8 +1,5 @@
 'use client'
 
-// REACT IMPORTS
-import { useState } from 'react'
-
 // NEXT IMPORTS
 import Image from 'next/image'
 
@@ -21,13 +18,12 @@ import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutli
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
-import EditEventModal from './AddEditEventModal'
 import DropDownMenuBtn from './DropDownBtnEventCard'
 import EventDrawerBtn from './EventDrawerBtn'
 
 // HOOKS IMPORTS
 import { useAppDispatch } from '@/lib/hooks'
-import { openDeleteEventModal } from '@/lib/features/eventModals/eventModalsSlice'
+import { openDeleteEventModal, openEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
 
 interface Props {
   event: Event
@@ -36,25 +32,17 @@ interface Props {
 
 const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
   const dispatch = useAppDispatch()
-  const [displayEditModal, setDisplayEditModal] = useState(false)
 
   const openDeleteModal = ():void => {
     dispatch(openDeleteEventModal(event))
   }
 
   const openEditModal = ():void => {
-    setDisplayEditModal(true)
-  }
-
-  const closeEditModal = ():void => {
-    setDisplayEditModal(false)
+    dispatch(openEditEventModal(event))
   }
 
   return (
     <>
-      {/* Edit Modal */}
-      {displayEditModal && isAdmin && <EditEventModal event={event} closeModal={closeEditModal} />}
-
       {/* EventCard */}
       <div className="flex flex-col sm:flex-row md:flex-col border-2 rounded-lg drop-shadow-lg overflow-hidden h-[350px] sm:h-[220px] md:h-[420px] lg:h-[490px]">
         <Image
