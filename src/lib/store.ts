@@ -1,9 +1,14 @@
 // RTK IMPORTS
 import { configureStore } from '@reduxjs/toolkit'
 
+// SLICES IMPORTS
+import { modalsSlice } from '@/lib/features/modals/modalsSlice'
+
 export const makeStore = () => {
   return configureStore({
-    reducer: {},
+    reducer: {
+      [modalsSlice.reducerPath]: modalsSlice.reducer,
+    },
   })
 }
 
