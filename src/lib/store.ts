@@ -2,12 +2,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 // SLICES IMPORTS
-import { modalsSlice } from '@/lib/features/modals/modalsSlice'
+import { eventModalsSlice } from '@/lib/features/eventModals/eventModalsSlice'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      [modalsSlice.reducerPath]: modalsSlice.reducer,
+      [eventModalsSlice.reducerPath]: eventModalsSlice.reducer,
     },
   })
 }
