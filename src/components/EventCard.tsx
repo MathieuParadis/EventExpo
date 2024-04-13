@@ -19,11 +19,15 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
 import DropDownMenuBtn from './DropDownBtnEventCard'
-import EventDrawerBtn from './EventDrawerBtn'
+import ReadEventBtn from './ReadEventBtn'
 
 // HOOKS IMPORTS
 import { useAppDispatch } from '@/lib/hooks'
-import { openDeleteEventModal, openEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
+import {
+  openDeleteEventModal,
+  openEditEventModal,
+  openReadEventModal
+} from '@/lib/features/eventModals/eventModalsSlice'
 
 interface Props {
   event: Event
@@ -39,6 +43,10 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
 
   const openEditModal = ():void => {
     dispatch(openEditEventModal(event))
+  }
+
+  const openReadModal = ():void => {
+    dispatch(openReadEventModal(event))
   }
 
   return (
@@ -73,7 +81,7 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
 
           {/* buttons */}
           <div className='mt-auto flex gap-2 pt-3 text-sm md:text-base'>
-            <EventDrawerBtn />
+            <ReadEventBtn onClick={openReadModal} />
             {isAdmin ? (
               <DropDownMenuBtn onEdit={openEditModal} onDelete={openDeleteModal} />
             ) : (

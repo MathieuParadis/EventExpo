@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 // COMPONENTS IMPORTS
 import AddEditEventModal from '@/components/AddEditEventModal'
 import DeleteEventModal from '@/components/DeleteEventModal'
+import EventDrawer from '@/components/EventDrawer'
 import Navbar from '@/components/Navbar'
 
 // STORE PROVIDER IMPORT
@@ -28,6 +29,7 @@ export default function RootLayout({
         <body className="h-screen w-screen overflow-hidden">
           <AddEditEventModal />
           <DeleteEventModal />
+          <EventDrawer />
           <Navbar />
           <div className="h-[calc(100%-var(--navbar-height))] w-full overflow-auto z-0">
             {children}
