@@ -15,7 +15,7 @@ const AddEditEventModal = (): JSX.Element => {
 
   if (isAddEvent || isEditEvent) {
     return (
-      <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
+      <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-[9999]">
         {/* overlay */}
         <div className="absolute w-full h-full bg-black opacity-40"></div>
 

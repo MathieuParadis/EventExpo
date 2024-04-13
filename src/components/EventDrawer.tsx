@@ -25,6 +25,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
 import DeleteEventBtn from './DeleteEventBtn'
+import EditEventBtn from './EditEventBtn'
 
 const EventDrawer = (): JSX.Element => {
   const pathname = usePathname()
@@ -47,6 +48,7 @@ const EventDrawer = (): JSX.Element => {
       anchor="right"
       open={isReadEvent}
       onClose={closeReadModal}
+      disableEscapeKeyDown={true}
       PaperProps={{
         className: 'h-[calc(100%-var(--navbar-height))] top-[var(--navbar-height)] w-full sm:w-[100%] md:w-[90%] lg:w-[80%] xl:w-[72%] rounded-tl-md rounded-bl-md'
       }}
@@ -85,8 +87,9 @@ const EventDrawer = (): JSX.Element => {
             </div>
             <Divider className="hidden sm:block" orientation="vertical" flexItem />
             <Divider className="sm:hidden" />
-            <div className="grow flex flex-col gap-4 md:gap-5 lg:gap-6">
+            <div className="grow flex flex-col gap-2 md:gap-3 lg:gap-4">
               {isAdmin && <DeleteEventBtn event={event} />}
+              {isAdmin && <EditEventBtn event={event} />}
             </div>
           </div>
         </div>
