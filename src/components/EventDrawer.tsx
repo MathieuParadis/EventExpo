@@ -33,27 +33,26 @@ const EventDrawer = (): JSX.Element => {
     }
   })
 
-  
-    return (
-      <Drawer
-        className='top-[var(--navbar-height)]'
-        anchor="right"
-        open={isReadEvent}
-        onClose={closeReadModal}
-        PaperProps={{
-          className: 'h-[calc(100%-var(--navbar-height))] top-[var(--navbar-height)] w-full sm:w-[100%] md:w-[90%] lg:w-[80%] xl:w-[72%] rounded-tl-md rounded-bl-md'
-        }}
-        slotProps={{
-          backdrop: {
-            sx: {top: 'var(--navbar-height)'}
-          }
-        }}
-      >
-        {event != null && (
-          <div>content</div>
-        )}
-      </Drawer>
-    )
+  return (
+    <Drawer
+      className='top-[var(--navbar-height)]'
+      anchor="right"
+      open={isReadEvent}
+      onClose={closeReadModal}
+      PaperProps={{
+        className: 'h-[calc(100%-var(--navbar-height))] top-[var(--navbar-height)] w-full sm:w-[100%] md:w-[90%] lg:w-[80%] xl:w-[72%] rounded-tl-md rounded-bl-md'
+      }}
+      slotProps={{
+        backdrop: {
+          sx: {top: 'var(--navbar-height)'}
+        }
+      }}
+    >
+      {event != null && (
+        <div>content</div>
+      )}
+    </Drawer>
+  )
 }
 
 export default EventDrawer
