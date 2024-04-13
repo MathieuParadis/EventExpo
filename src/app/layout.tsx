@@ -4,6 +4,9 @@ import type { Metadata } from 'next'
 // COMPONENTS IMPORTS
 import Navbar from '@/components/Navbar'
 
+// STORE PROVIDER IMPORT
+import StoreProvider from '@/app/StoreProvider'
+
 // STYLES IMPORTS
 import './globals.css'
 
@@ -19,12 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen w-screen overflow-hidden">
-        <Navbar />
-        <div className="h-[calc(100%-var(--navbar-height))] w-full overflow-auto z-0">
-          {children}
-        </div>
-      </body>
+      <StoreProvider>
+        <body className="h-screen w-screen overflow-hidden">
+          <Navbar />
+          <div className="h-[calc(100%-var(--navbar-height))] w-full overflow-auto z-0">
+            {children}
+          </div>
+        </body>
+      </StoreProvider>
     </html>
   )
 }
