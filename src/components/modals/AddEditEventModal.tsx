@@ -4,9 +4,27 @@
 import { Divider } from '@mui/material'
 import Button from '@mui/material/Button'
 
+// COMPONENTS IMPORTS
+import EventForm from '../EventForm'
+
+// TYPES IMPORTS
+import { Event } from '@prisma/client'
+
 // HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
 import { closeAddEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
+
+const newEvent: Event = {
+  id: 0,
+  title: '',
+  description: '',
+  location: '',
+  startTime: new Date(),
+  image: '',
+  interestCount: 0,
+  createdAt: new Date(),
+  updatedAt: new Date()
+}
 
 const AddEditEventModal = (): JSX.Element => {
   const dispatch = useAppDispatch()
@@ -33,7 +51,8 @@ const AddEditEventModal = (): JSX.Element => {
             <Divider className='px-[-8px] md:px-[-16px]' />
           </div>
 
-          <div className="grow">content</div>
+          <EventForm event={event ?? newEvent} />
+
           <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
             <Divider />
             <div className="flex justify-center gap-2 md:gap-3 lg:gap-4">
