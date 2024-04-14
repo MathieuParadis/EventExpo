@@ -36,7 +36,7 @@ const AddEditEventModal = (): JSX.Element => {
           <div className="grow">content</div>
           <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
             <Divider />
-            <div className="flex gap-2 md:gap-3 lg:gap-4">
+            <div className="flex justify-center gap-2 md:gap-3 lg:gap-4">
               <Button
                 className="w-1/2 md:w-[150px] rounded focus:outline-none bg-gray-400 hover:bg-gray-500 text-white py-1 px-2"
                 style={{ textTransform: 'capitalize'}}
