@@ -1,5 +1,8 @@
 'use client'
 
+// MUI IMPORTS
+import { Divider } from '@mui/material'
+
 // HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
 import { closeAddEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
@@ -20,9 +23,20 @@ const AddEditEventModal = (): JSX.Element => {
         <div className="absolute w-full h-full bg-black opacity-40"></div>
 
         {/* content */}
-        <div className="absolute flex flex-col gap-10 md:gap-16 justify-center items-center w-[80%] md:w-[650px] h-fit md:h-[330px] bg-white rounded-md p-2 md:p-4">
-          {isAddEvent && <>new event</>}
-          {isEditEvent && <>edit event {event?.title}</>}
+        <div className="absolute flex flex-col justify-between gap-2 md:gap-3 lg:gap-4 w-[90%] md:w-[500px] aspect-[5/6] bg-white rounded-md p-2 md:p-4">
+          <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
+            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl'>
+              {isAddEvent && <>new event</>}
+              {isEditEvent && <>edit event {event?.title}</>}
+            </h2>
+            <Divider className='px-[-8px] md:px-[-16px]' />
+          </div>
+
+          <div className="grow">content</div>
+          <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
+            <Divider />
+            btns here
+          </div>
         </div>
       </div>
     )
