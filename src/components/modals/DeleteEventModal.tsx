@@ -43,7 +43,7 @@ const DeleteModal = (): JSX.Element => {
               style={{ textTransform: 'capitalize'}}
               onClick={closeDeleteModal}
             >
-            No, cancel
+              No, cancel
             </Button>
           </div>
         </div>

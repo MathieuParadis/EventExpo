@@ -2,6 +2,7 @@
 
 // MUI IMPORTS
 import { Divider } from '@mui/material'
+import Button from '@mui/material/Button'
 
 // HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
@@ -24,10 +25,10 @@ const AddEditEventModal = (): JSX.Element => {
 
         {/* content */}
         <div className="absolute flex flex-col justify-between gap-2 md:gap-3 lg:gap-4 w-[90%] md:w-[500px] aspect-[5/6] bg-white rounded-md p-2 md:p-4">
-          <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
-            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl'>
-              {isAddEvent && <>new event</>}
-              {isEditEvent && <>edit event {event?.title}</>}
+          <div className="flex flex-col justify-center gap-2 md:gap-3 lg:gap-4">
+            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center'>
+              {isAddEvent && <>New event</>}
+              {isEditEvent && <>Edit event</>}
             </h2>
             <Divider className='px-[-8px] md:px-[-16px]' />
           </div>
@@ -35,7 +36,22 @@ const AddEditEventModal = (): JSX.Element => {
           <div className="grow">content</div>
           <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
             <Divider />
-            btns here
+            <div className="flex gap-2 md:gap-3 lg:gap-4">
+              <Button
+                className="w-1/2 md:w-[150px] rounded focus:outline-none bg-gray-400 hover:bg-gray-500 text-white py-1 px-2"
+                style={{ textTransform: 'capitalize'}}
+                onClick={closeAddEditModal}
+              >
+              Cancel
+              </Button>
+              <Button
+                className="w-1/2 md:w-[150px] rounded focus:outline-none bg-green-500 hover:bg-green-600 text-white py-1 px-2"
+                style={{ textTransform: 'capitalize'}}
+                onClick={closeAddEditModal}
+              >
+              Save
+              </Button>
+            </div>
           </div>
         </div>
       </div>
