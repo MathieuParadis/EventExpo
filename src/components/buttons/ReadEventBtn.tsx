@@ -9,7 +9,7 @@ interface Props {
 const ReadEventBtn = ({ onClick }: Props): JSX.Element => {
   return (
     <Button
-      className='focus:outline-none rounded bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white p-1 w-1/2'
+      className='focus:outline-none rounded bg-white hover:bg-[var(--primary-color)] text-[var(--primary-color)] hover:text-white py-1 px-2 w-1/2'
       style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)' }}
       onClick={onClick}
     >
