@@ -26,6 +26,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 // COMPONENTS IMPORTS
 import DeleteEventBtn from '../buttons/DeleteEventBtn'
 import EditEventBtn from '../buttons/EditEventBtn'
+import EditInterestEventBtn from '../buttons/EditInterestEventBtn'
 
 const EventDrawer = (): JSX.Element => {
   const pathname = usePathname()
@@ -70,7 +71,7 @@ const EventDrawer = (): JSX.Element => {
 
           {/* event details */}
           <div className="flex flex-col sm:flex-row gap-4 md:gap-5 lg:gap-6 grow">
-            <div className='w-full sm:w-2/3 flex flex-col gap-4 md:gap-5 lg:gap-6'>
+            <div className='w-full md:w-2/3 flex flex-col gap-4 md:gap-5 lg:gap-6'>
               <p className="text-base md:text-lg lg:text-xl">{event.description}</p>
               <div className="flex gap-2">
                 <CalendarTodayOutlinedIcon fontSize="small" color="inherit" />
@@ -85,11 +86,12 @@ const EventDrawer = (): JSX.Element => {
                 <p className="text-sm md:text-base">{event.interestCount} people interested</p>
               </div>
             </div>
-            <Divider className="hidden sm:block" orientation="vertical" flexItem />
-            <Divider className="sm:hidden" />
+            <Divider className="hidden md:block" orientation="vertical" flexItem />
+            <Divider className="md:hidden" />
             <div className="grow flex flex-col gap-2 md:gap-3 lg:gap-4">
               {isAdmin && <DeleteEventBtn event={event} />}
               {isAdmin && <EditEventBtn event={event} />}
+              {!isAdmin && <EditInterestEventBtn />}
             </div>
           </div>
         </div>

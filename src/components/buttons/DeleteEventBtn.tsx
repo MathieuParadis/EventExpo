@@ -23,7 +23,7 @@ const DeleteEventBtn = ({ event }: Props): JSX.Element => {
 
   return (
     <Button
-      className='focus:outline-none rounded bg-red-500 hover:bg-red-600 text-white py-1 px-2 w-[fit] mr-auto'
+      className='focus:outline-none rounded bg-red-500 hover:bg-red-600 text-white py-1 px-2 w-fit mr-auto'
       style={{ textTransform: 'capitalize' }}
       onClick={openDeleteModal}
     >

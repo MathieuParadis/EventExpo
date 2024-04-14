@@ -19,6 +19,7 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined'
 
 // COMPONENTS IMPORTS
 import DropDownBtn from './DropDownBtn'
+import EditInterestEventBtn from './buttons/EditInterestEventBtn'
 import ReadEventBtn from './buttons/ReadEventBtn'
 
 // HOOKS IMPORTS
@@ -82,17 +83,17 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
           {/* buttons */}
           <div className='mt-auto flex gap-2 pt-3 text-sm md:text-base'>
             <ReadEventBtn onClick={openReadModal} />
-            {isAdmin ? (
+            {isAdmin ?
               <DropDownBtn onEdit={openEditModal} onDelete={openDeleteModal} />
-            ) : (
+              :
               <Button
                 className='focus:outline-none rounded bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white py-1 px-2 w-1/2'
                 style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)' }}
-                onClick={() => alert('interestec')}
+                onClick={() => alert('interested')}
               >
-              I&#39;m interested
+                I&#39;m interested
               </Button>
-            )}
+            }
           </div>
         </div>
       </div>
