@@ -44,7 +44,7 @@ const AddEditEventModal = (): JSX.Element => {
         {/* content */}
         <div className="absolute flex flex-col justify-between gap-2 md:gap-3 lg:gap-4 w-[90%] md:w-[500px] aspect-[5/6] bg-white rounded-md p-2 md:p-4">
           <div className="flex flex-col justify-center gap-2 md:gap-3 lg:gap-4">
-            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center'>
+            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-semibold text-[var(--primary-color-darker)]'>
               {isAddEvent && <>New event</>}
               {isEditEvent && <>Edit event</>}
             </h2>
