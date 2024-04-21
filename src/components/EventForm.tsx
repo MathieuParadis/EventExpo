@@ -9,7 +9,7 @@ interface Props {
 
 const EventForm = ({ event }: Props): JSX.Element => {
   return (
-    <form className="grow flex flex-col gap-4 md:gap-6">
+    <form className="flex flex-col gap-4 md:gap-6">
       <div className="flex flex-col gap-2">
         <label htmlFor="title" className=" text-gray-700 text-sm md:text-base font-semibold">
         Title{' '}

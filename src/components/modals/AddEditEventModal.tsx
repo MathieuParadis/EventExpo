@@ -51,7 +51,9 @@ const AddEditEventModal = (): JSX.Element => {
             <Divider className='px-[-8px] md:px-[-16px]' />
           </div>
 
-          <EventForm event={event ?? newEvent} />
+          <div className="grow overflow-y-auto h-10">
+            <EventForm event={event ?? newEvent} />
+          </div>
 
           <div className="flex flex-col gap-2 md:gap-3 lg:gap-4">
             <Divider />
