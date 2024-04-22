@@ -50,7 +50,23 @@ const EventForm = ({ event }: Props): JSX.Element => {
           <span className='text-red-500'>*</span>
         </label>
         <LocalizationProvider dateAdapter={AdapterMoment}>
-          <DateTimePicker disablePast/>
+          <DateTimePicker disablePast
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": { border: "none" },
+                "&:hover > fieldset": { borderColor: "1px #d4d4d4 solid", boxShadow: '0 0 10px var(--primary-color)' },
+                "&:focus > fieldset": { borderColor: "1px #d4d4d4 solid", boxShadow: '0 0 10px var(--primary-color)' },
+              height: "42px",
+              borderRadius: "8px",
+              border: '1px #d4d4d4 solid'
+              },
+              ".MuiInputBase-input": {
+                padding: '8px 12px'
+              }
+          } }
+          
+          
+          />
         </LocalizationProvider>
       </div>
 
