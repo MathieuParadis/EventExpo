@@ -36,6 +36,7 @@ export const eventModalsSlice = createSlice({
     },
     closeDeleteEventModal(state) {
       state.isDeleteEvent = false
+      state.event = null
     },
     openAddEventModal(state) {
       state.isAddEvent = true
@@ -47,6 +48,7 @@ export const eventModalsSlice = createSlice({
     closeAddEditEventModal(state) {
       state.isAddEvent = false
       state.isEditEvent = false
+      state.event = null
     },
     openReadEventModal(state, action: PayloadAction<Event>) {
       state.isReadEvent = true
@@ -56,6 +58,9 @@ export const eventModalsSlice = createSlice({
       state.isReadEvent = false
       state.event = null
     },
+    editEvent(state, action: PayloadAction<Event>) {
+      state.event = action.payload
+    }
   }
 })
 
@@ -66,7 +71,8 @@ export const {
   openEditEventModal,
   closeAddEditEventModal,
   openReadEventModal,
-  closeReadEventModal
+  closeReadEventModal,
+  editEvent
 } = eventModalsSlice.actions
 
 export const selectmodalsState = (state: RootState): EventModalsType => state.modals
