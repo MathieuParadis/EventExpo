@@ -3,6 +3,9 @@
 // MUI IMPORTS
 import Button from '@mui/material/Button'
 
+// REACT-HOT-TOAST IMPORTS
+import { toast } from 'react-hot-toast'
+
 // HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
 import { closeDeleteEventModal } from '@/lib/features/eventModals/eventModalsSlice'
@@ -21,10 +24,12 @@ const DeleteModal = (): JSX.Element => {
     if (event != null) {
       try {
         await deleteEvent(event.id)
-        closeDeleteModal()
+        toast.success('Event deleted successfully')
       } catch (error) {
         console.error('Error deleting event:', error)
+        toast.error('An error occured. Try again!')
       }
+      closeDeleteModal()
     }
   }
 
