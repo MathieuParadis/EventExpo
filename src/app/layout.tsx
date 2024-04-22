@@ -31,7 +31,7 @@ export default function RootLayout({
           <DeleteEventModal />
           <EventDrawer />
           <Navbar />
-          <div className="h-[calc(100%-var(--navbar-height))] w-full overflow-auto z-0">
+          <div className="h-[calc(100%-var(--navbar-height))] w-full overflow-auto z-0 bg-white">
             {children}
           </div>
         </body>

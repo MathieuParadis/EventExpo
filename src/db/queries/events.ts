@@ -1,3 +1,5 @@
+'use server'
+
 // TYPES IMPORTS
 import type { Event } from '@prisma/client'
 
@@ -11,8 +13,8 @@ export async function fetchEvents(startTime: String | null = null): Promise<Even
     whereClause = {
       startTime: {
         // Filtering events where the startTime is greater than or equal to the specified start date
-        gte: startTime,
-      },
+        gte: startTime
+      }
     }
   }
 
@@ -20,8 +22,16 @@ export async function fetchEvents(startTime: String | null = null): Promise<Even
     where: whereClause,
     orderBy: [
       {
-        startTime: 'asc',
+        startTime: 'asc'
       }
-    ],
+    ]
+  })
+}
+
+export async function deleteEvent(id: number): Promise<void> {
+  await db.event.delete({
+    where: {
+      id
+    }
   })
 }

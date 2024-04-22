@@ -6,6 +6,7 @@ import Button from '@mui/material/Button'
 // HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
 import { closeDeleteEventModal } from '@/lib/features/eventModals/eventModalsSlice'
+import { deleteEvent } from '@/db/queries/events'
 
 const DeleteModal = (): JSX.Element => {
   const dispatch = useAppDispatch()
@@ -14,6 +15,17 @@ const DeleteModal = (): JSX.Element => {
 
   const closeDeleteModal = ():void => {
     dispatch(closeDeleteEventModal())
+  }
+
+  const handleDelete = async () => {
+    if (event != null) {
+      try {
+        await deleteEvent(event.id)
+        closeDeleteModal()
+      } catch (error) {
+        console.error('Error deleting event:', error)
+      }
+    }
   }
 
   if (isDeleteEvent && event != null) {
@@ -34,7 +46,7 @@ const DeleteModal = (): JSX.Element => {
             <Button
               className="w-1/2 md:w-[150px] rounded focus:outline-none bg-red-500 hover:bg-red-600 text-white p-2"
               style={{ textTransform: 'capitalize'}}
-              onClick={() => alert('deleting event')}
+              onClick={handleDelete}
             >
               Yes, delete
             </Button>
