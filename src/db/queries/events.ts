@@ -37,6 +37,13 @@ export async function addEvent(eventData: Omit<Event, 'id' | 'createdAt' | 'upda
   })
 }
 
+export async function editEvent(eventData: Omit<Event, 'createdAt' | 'updatedAt'>): Promise<Event> {
+  return await db.event.update({
+    where: { id: eventData.id },
+    data: eventData
+  })
+}
+
 export async function deleteEvent(id: number): Promise<void> {
   await db.event.delete({
     where: {

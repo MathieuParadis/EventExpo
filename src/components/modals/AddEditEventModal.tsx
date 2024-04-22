@@ -15,7 +15,7 @@ import { Event } from '@prisma/client'
 // HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
 import { closeAddEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
-import { addEvent } from '@/db/queries/events'
+import { addEvent, editEvent } from '@/db/queries/events'
 
 const newEvent: Omit<Event, 'createdAt' | 'updatedAt'> = {
   id: 0,
@@ -36,13 +36,26 @@ const AddEditEventModal = (): JSX.Element => {
     dispatch(closeAddEditEventModal())
   }
 
-  const handleAdd = async () => {
+  const handleAdd = async (): Promise<void> => {
     if (event != null) {
       try {
         await addEvent(event)
-        toast.success('Event Added successfully')
+        toast.success('Event added successfully')
       } catch (error) {
-        console.error('Error adding event:', error)
+        console.error('Error while adding event:', error)
+        toast.error('An error occured. Try again!')
+      }
+      closeAddEditModal()
+    }
+  }
+
+  const handleEdit = async (): Promise<void> => {
+    if (event != null) {
+      try {
+        await editEvent(event)
+        toast.success('Event edited successfully')
+      } catch (error) {
+        console.error('Error while editing event:', error)
         toast.error('An error occured. Try again!')
       }
       closeAddEditModal()
@@ -82,7 +95,7 @@ const AddEditEventModal = (): JSX.Element => {
               <Button
                 className="w-1/2 md:w-[100px] rounded focus:outline-none bg-green-500 hover:bg-green-600 text-white py-1 px-2"
                 style={{ textTransform: 'capitalize'}}
-                onClick={handleAdd}
+                onClick={isAddEvent ? handleAdd : handleEdit}
               >
               Save
               </Button>

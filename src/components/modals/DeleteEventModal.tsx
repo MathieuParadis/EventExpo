@@ -20,7 +20,7 @@ const DeleteModal = (): JSX.Element => {
     dispatch(closeDeleteEventModal())
   }
 
-  const handleDelete = async () => {
+  const handleDelete = async (): Promise<void> => {
     if (event != null) {
       try {
         await deleteEvent(event.id)

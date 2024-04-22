@@ -46,6 +46,7 @@ const EventDrawer = (): JSX.Element => {
   return (
     <Drawer
       className='top-[var(--navbar-height)] z-50'
+      disableEnforceFocus
       anchor="right"
       open={isReadEvent}
       onClose={closeReadModal}
