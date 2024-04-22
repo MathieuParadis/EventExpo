@@ -3,6 +3,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment'
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 
+// MOMENT IMPORT
+import moment from 'moment'
+
 // TYPES IMPORTS
 import { Event } from '@prisma/client'
 
@@ -40,7 +43,7 @@ const EventForm = ({ event }: Props): JSX.Element => {
             setEvent({
               ...event,
               title: e.target.value
-            });
+            })
           }}
         />
       </div>
@@ -57,6 +60,13 @@ const EventForm = ({ event }: Props): JSX.Element => {
           className="border rounded-lg w-full py-2 px-3 focus:outline-none focus:shadow-[0_0_10px_var(--primary-color)] hover:shadow-[0_0_10px_var(--primary-color)]"
           required={true}
           placeholder='Share here what is your event about'
+          value={event.description}
+          onChange={(e) => {
+            setEvent({
+              ...event,
+              description: e.target.value
+            })
+          }}
         />
       </div>
 
@@ -81,7 +91,13 @@ const EventForm = ({ event }: Props): JSX.Element => {
                 padding: '8px 12px'
               }
             } }
-
+            value={moment(event.startTime)}
+            onChange={(e) => {
+              setEvent({
+                ...event,
+                startTime: e?.toDate() ?? new Date()
+              })
+            }}
           />
         </LocalizationProvider>
       </div>
@@ -97,6 +113,13 @@ const EventForm = ({ event }: Props): JSX.Element => {
           type="text"
           className="border rounded-lg w-full py-2 px-3 focus:outline-none focus:shadow-[0_0_10px_var(--primary-color)] hover:shadow-[0_0_10px_var(--primary-color)]"
           required={true}
+          value={event.location}
+          onChange={(e) => {
+            setEvent({
+              ...event,
+              location: e.target.value
+            })
+          }}
         />
       </div>
 
@@ -111,6 +134,13 @@ const EventForm = ({ event }: Props): JSX.Element => {
           type="text"
           className="border rounded-lg w-full py-2 px-3 focus:outline-none focus:shadow-[0_0_10px_var(--primary-color)] hover:shadow-[0_0_10px_var(--primary-color)]"
           required={true}
+          value={event.image ?? ''}
+          onChange={(e) => {
+            setEvent({
+              ...event,
+              image: e.target.value
+            })
+          }}
         />
       </div>
     </form>
