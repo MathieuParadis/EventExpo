@@ -1,7 +1,6 @@
 'use client'
 
 // MUI IMPORTS
-import { Divider } from '@mui/material'
 import Button from '@mui/material/Button'
 
 // COMPONENTS IMPORTS
@@ -37,7 +36,7 @@ const AddEditEventModal = (): JSX.Element => {
 
   if (isAddEvent || isEditEvent) {
     return (
-      <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-[9999]">
+      <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-[100]">
         {/* overlay */}
         <div className="absolute w-full h-full bg-black opacity-40"></div>
 
