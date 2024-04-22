@@ -13,7 +13,7 @@ export interface EventModalsType {
 	isEditEvent: boolean
 	isDeleteEvent: boolean
 	isReadEvent: boolean
-	event?: Event | null
+	event?: Omit<Event, 'createdAt' | 'updatedAt'> | null
 }
 
 // Initial state

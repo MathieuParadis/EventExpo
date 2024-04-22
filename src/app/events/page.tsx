@@ -5,7 +5,7 @@ import { fetchEvents } from '@/db/queries/events'
 import EventCard from '@/components/EventCard'
 
 export default async function EventsPage() {
-  const upcomingEvents = await fetchEvents(new Date())
+  const upcomingEvents = await fetchEvents(new Date().toISOString())
 
   return (
     <main className="bg-white grow p-4 md:px-10 lg:px-16">

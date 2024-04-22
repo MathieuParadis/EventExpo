@@ -95,7 +95,7 @@ const EventForm = ({ event }: Props): JSX.Element => {
             onChange={(e) => {
               setEvent({
                 ...event,
-                startTime: e?.toDate() ?? new Date()
+                startTime: (e?.toDate() ?? new Date()).toISOString()
               })
             }}
           />

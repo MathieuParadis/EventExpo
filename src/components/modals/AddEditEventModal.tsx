@@ -18,7 +18,7 @@ const newEvent: Event = {
   title: '',
   description: '',
   location: '',
-  startTime: new Date(),
+  startTime: new Date().toISOString(),
   image: '',
   interestCount: 0,
   createdAt: new Date(),

@@ -13,7 +13,7 @@ model Event {
   title         String
   description   String
   location      String
-  startTime     DateTime
+  startTime     String
   image         String?   // (optional)
   interestCount Int       @default(0)
   createdAt     DateTime  @default(now())
