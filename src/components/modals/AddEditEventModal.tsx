@@ -3,6 +3,9 @@
 // MUI IMPORTS
 import Button from '@mui/material/Button'
 
+// REACT-HOT-TOAST IMPORTS
+import { toast } from 'react-hot-toast'
+
 // COMPONENTS IMPORTS
 import EventForm from '../EventForm'
 
@@ -12,6 +15,7 @@ import { Event } from '@prisma/client'
 // HOOKS IMPORTS
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
 import { closeAddEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
+import { addEvent } from '@/db/queries/events'
 
 const newEvent: Omit<Event, 'createdAt' | 'updatedAt'> = {
   id: 0,
@@ -19,7 +23,7 @@ const newEvent: Omit<Event, 'createdAt' | 'updatedAt'> = {
   description: '',
   location: '',
   startTime: new Date().toISOString(),
-  image: '',
+  image: null,
   interestCount: 0
 }
 
@@ -30,6 +34,19 @@ const AddEditEventModal = (): JSX.Element => {
 
   const closeAddEditModal = ():void => {
     dispatch(closeAddEditEventModal())
+  }
+
+  const handleAdd = async () => {
+    if (event != null) {
+      try {
+        await addEvent(event)
+        toast.success('Event Added successfully')
+      } catch (error) {
+        console.error('Error adding event:', error)
+        toast.error('An error occured. Try again!')
+      }
+      closeAddEditModal()
+    }
   }
 
   if (isAddEvent || isEditEvent) {
@@ -65,7 +82,7 @@ const AddEditEventModal = (): JSX.Element => {
               <Button
                 className="w-1/2 md:w-[100px] rounded focus:outline-none bg-green-500 hover:bg-green-600 text-white py-1 px-2"
                 style={{ textTransform: 'capitalize'}}
-                onClick={closeAddEditModal}
+                onClick={handleAdd}
               >
               Save
               </Button>
