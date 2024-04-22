@@ -1,12 +1,13 @@
 'use server'
 
+// LODASH IMPORTS
+import { omit } from 'lodash'
+
 // TYPES IMPORTS
 import type { Event } from '@prisma/client'
 
 // DB IMPORTS
 import { db } from '@/db'
-
-const dynamic = 'force-dynamic'
 
 export async function fetchEvents(startTime: String | null = null): Promise<Event[]> {
   let whereClause = {}
@@ -27,6 +28,12 @@ export async function fetchEvents(startTime: String | null = null): Promise<Even
         startTime: 'asc'
       }
     ]
+  })
+}
+
+export async function addEvent(eventData: Omit<Event, 'id' | 'createdAt' | 'updatedAt'>): Promise<Event> {
+  return await db.event.create({
+    data: omit(eventData, 'id')
   })
 }
 
