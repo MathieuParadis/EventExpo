@@ -13,7 +13,7 @@ export interface EventModalsType {
 	isEditEvent: boolean
 	isDeleteEvent: boolean
 	isReadEvent: boolean
-	event?: Omit<Event, 'createdAt' | 'updatedAt'> | null
+	event: Omit<Event, 'createdAt' | 'updatedAt'> | null
 }
 
 // Initial state
@@ -30,7 +30,7 @@ export const eventModalsSlice = createSlice({
   name: 'modals',
   initialState,
   reducers: {
-    openDeleteEventModal(state, action: PayloadAction<Event>) {
+    openDeleteEventModal(state, action: PayloadAction<Omit<Event, 'createdAt' | 'updatedAt'>>) {
       state.isDeleteEvent = true
       state.event = action.payload
     },
@@ -41,7 +41,7 @@ export const eventModalsSlice = createSlice({
     openAddEventModal(state) {
       state.isAddEvent = true
     },
-    openEditEventModal(state, action: PayloadAction<Event>) {
+    openEditEventModal(state, action: PayloadAction<Omit<Event, 'createdAt' | 'updatedAt'>>) {
       state.isEditEvent = true
       state.event = action.payload
     },
@@ -50,7 +50,7 @@ export const eventModalsSlice = createSlice({
       state.isEditEvent = false
       state.event = null
     },
-    openReadEventModal(state, action: PayloadAction<Event>) {
+    openReadEventModal(state, action: PayloadAction<Omit<Event, 'createdAt' | 'updatedAt'>>) {
       state.isReadEvent = true
       state.event = action.payload
     },
@@ -58,7 +58,7 @@ export const eventModalsSlice = createSlice({
       state.isReadEvent = false
       state.event = null
     },
-    editEvent(state, action: PayloadAction<Event>) {
+    editEvent(state, action: PayloadAction<Omit<Event, 'createdAt' | 'updatedAt'>>) {
       state.event = action.payload
     }
   }

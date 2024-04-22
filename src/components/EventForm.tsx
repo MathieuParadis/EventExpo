@@ -14,7 +14,7 @@ import { useAppDispatch } from '@/lib/hooks'
 import { editEvent } from '@/lib/features/eventModals/eventModalsSlice'
 
 interface Props {
-  event: Event
+  event: Omit<Event, 'createdAt' | 'updatedAt'>
   isAdmin?: boolean
 }
 

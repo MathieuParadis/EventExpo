@@ -11,7 +11,7 @@ import { useAppDispatch } from '@/lib/hooks'
 import { openEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
 
 interface Props {
-  event: Event
+  event: Omit<Event, 'createdAt' | 'updatedAt'>
 }
 
 const EditEventBtn = ({ event }: Props): JSX.Element => {

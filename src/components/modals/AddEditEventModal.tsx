@@ -13,16 +13,14 @@ import { Event } from '@prisma/client'
 import { useAppSelector, useAppDispatch } from '@/lib/hooks'
 import { closeAddEditEventModal } from '@/lib/features/eventModals/eventModalsSlice'
 
-const newEvent: Event = {
+const newEvent: Omit<Event, 'createdAt' | 'updatedAt'> = {
   id: 0,
   title: '',
   description: '',
   location: '',
   startTime: new Date().toISOString(),
   image: '',
-  interestCount: 0,
-  createdAt: new Date(),
-  updatedAt: new Date()
+  interestCount: 0
 }
 
 const AddEditEventModal = (): JSX.Element => {
