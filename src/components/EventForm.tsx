@@ -1,4 +1,3 @@
-
 // TYPES IMPORTS
 import { Event } from '@prisma/client'
 
@@ -42,6 +41,18 @@ const EventForm = ({ event }: Props): JSX.Element => {
         </label>
         <input
           id="location"
+          type="text"
+          className="border rounded-lg w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-[0_0_10px_var(--primary-color)] hover:shadow-[0_0_10px_var(--primary-color)]"
+          required={true}
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="image" className=" text-gray-700 text-sm md:text-base font-semibold">
+        Image URL{' '}
+          <span className='text-gray-400 text-sm font-normal italic'>(optional)</span>
+        </label>
+        <input
+          id="image"
           type="text"
           className="border rounded-lg w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-[0_0_10px_var(--primary-color)] hover:shadow-[0_0_10px_var(--primary-color)]"
           required={true}

@@ -54,21 +54,25 @@ const AddEditEventModal = (): JSX.Element => {
             <EventForm event={event ?? newEvent} />
           </div>
 
-          <div className="flex justify-center gap-2 md:gap-3 lg:gap-4 border-t p-2 md:p-4">
-            <Button
-              className="w-1/2 md:w-[150px] rounded focus:outline-none bg-gray-400 hover:bg-gray-500 text-white py-1 px-2"
-              style={{ textTransform: 'capitalize'}}
-              onClick={closeAddEditModal}
-            >
-            Cancel
-            </Button>
-            <Button
-              className="w-1/2 md:w-[150px] rounded focus:outline-none bg-green-500 hover:bg-green-600 text-white py-1 px-2"
-              style={{ textTransform: 'capitalize'}}
-              onClick={closeAddEditModal}
-            >
-            Save
-            </Button>
+          <div className="flex justify-between items-center border-t p-2 md:p-4">
+            <p className='text-red-500'>* Required field</p>
+
+            <div className="flex gap-2 md:gap-3 lg:gap-4">
+              <Button
+                className="w-1/2 md:w-[100px] rounded focus:outline-none bg-gray-400 hover:bg-gray-500 text-white py-1 px-2"
+                style={{ textTransform: 'capitalize'}}
+                onClick={closeAddEditModal}
+              >
+              Cancel
+              </Button>
+              <Button
+                className="w-1/2 md:w-[100px] rounded focus:outline-none bg-green-500 hover:bg-green-600 text-white py-1 px-2"
+                style={{ textTransform: 'capitalize'}}
+                onClick={closeAddEditModal}
+              >
+              Save
+              </Button>
+            </div>
           </div>
         </div>
       </div>
