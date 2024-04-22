@@ -21,7 +21,7 @@ interface Props {
 const EventForm = ({ event }: Props): JSX.Element => {
   const dispatch = useAppDispatch()
 
-  const setEvent = (event: Event): void => {
+  const setEvent = (event: Omit<Event, 'createdAt' | 'updatedAt'>): void => {
     dispatch(editEvent(event))
   }
 
