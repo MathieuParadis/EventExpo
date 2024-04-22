@@ -30,7 +30,7 @@ import {
 } from '@/lib/features/eventModals/eventModalsSlice'
 
 interface Props {
-  event: Event
+  event: Omit<Event, 'createdAt' | 'updatedAt'>
   isAdmin?: boolean
 }
 

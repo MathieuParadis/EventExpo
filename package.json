@@ -17,6 +17,7 @@
     "@mui/x-date-pickers": "^7.2.0",
     "@prisma/client": "5.12.1",
     "@reduxjs/toolkit": "^2.2.3",
+    "@types/lodash": "^4.17.0",
     "@vercel/postgres": "^0.8.0",
     "lodash": "^4.17.21",
     "moment": "^2.30.1",

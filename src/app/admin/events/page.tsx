@@ -1,6 +1,9 @@
 // DB IMPORTS
 import { fetchEvents } from '@/db/queries/events'
 
+// LODASH IMPORTS
+import { omit } from 'lodash'
+
 // COMPONENTS IMPORTS
 import EventCard from '@/components/EventCard'
 import AddBtn from '@/components/buttons/AddEventBtn'
@@ -14,7 +17,7 @@ export default async function AdminEventsPage() {
       <AddBtn />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
         {allEvents != null && allEvents.map((event) => (
-          <EventCard key={event.id} event={event} isAdmin={true} />
+          <EventCard key={event.id} event={omit(event, ['createdAt', 'updatedAt'])} isAdmin={true} />
         ))}
       </div>
     </main>

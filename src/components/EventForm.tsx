@@ -14,14 +14,14 @@ import { useAppDispatch } from '@/lib/hooks'
 import { editEvent } from '@/lib/features/eventModals/eventModalsSlice'
 
 interface Props {
-  event: Event
+  event: Omit<Event, 'createdAt' | 'updatedAt'>
   isAdmin?: boolean
 }
 
 const EventForm = ({ event }: Props): JSX.Element => {
   const dispatch = useAppDispatch()
 
-  const setEvent = (event: Event): void => {
+  const setEvent = (event: Omit<Event, 'createdAt' | 'updatedAt'>): void => {
     dispatch(editEvent(event))
   }
 
@@ -95,7 +95,7 @@ const EventForm = ({ event }: Props): JSX.Element => {
             onChange={(e) => {
               setEvent({
                 ...event,
-                startTime: e?.toDate() ?? new Date()
+                startTime: (e?.toDate() ?? new Date()).toISOString()
               })
             }}
           />
