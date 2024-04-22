@@ -6,12 +6,22 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 // TYPES IMPORTS
 import { Event } from '@prisma/client'
 
+// HOOKS IMPORTS
+import { useAppDispatch } from '@/lib/hooks'
+import { editEvent } from '@/lib/features/eventModals/eventModalsSlice'
+
 interface Props {
   event: Event
   isAdmin?: boolean
 }
 
 const EventForm = ({ event }: Props): JSX.Element => {
+  const dispatch = useAppDispatch()
+
+  const setEvent = (event: Event): void => {
+    dispatch(editEvent(event))
+  }
+
   return (
     <form className="flex flex-col gap-4 md:gap-6">
       {/* title */}
@@ -25,6 +35,13 @@ const EventForm = ({ event }: Props): JSX.Element => {
           type="text"
           className="border rounded-lg w-full py-2 px-3 focus:outline-none focus:shadow-[0_0_10px_var(--primary-color)] hover:shadow-[0_0_10px_var(--primary-color)]"
           required={true}
+          value={event.title}
+          onChange={(e) => {
+            setEvent({
+              ...event,
+              title: e.target.value
+            });
+          }}
         />
       </div>
 
@@ -52,20 +69,19 @@ const EventForm = ({ event }: Props): JSX.Element => {
         <LocalizationProvider dateAdapter={AdapterMoment}>
           <DateTimePicker disablePast
             sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": { border: "none" },
-                "&:hover > fieldset": { borderColor: "1px #d4d4d4 solid", boxShadow: '0 0 10px var(--primary-color)' },
-                "&:focus > fieldset": { borderColor: "1px #d4d4d4 solid", boxShadow: '0 0 10px var(--primary-color)' },
-              height: "42px",
-              borderRadius: "8px",
-              border: '1px #d4d4d4 solid'
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { border: 'none' },
+                '&:hover > fieldset': { borderColor: '1px #d4d4d4 solid', boxShadow: '0 0 10px var(--primary-color)' },
+                '&:focus > fieldset': { borderColor: '1px #d4d4d4 solid', boxShadow: '0 0 10px var(--primary-color)' },
+                height: '42px',
+                borderRadius: '8px',
+                border: '1px #d4d4d4 solid'
               },
-              ".MuiInputBase-input": {
+              '.MuiInputBase-input': {
                 padding: '8px 12px'
               }
-          } }
-          
-          
+            } }
+
           />
         </LocalizationProvider>
       </div>

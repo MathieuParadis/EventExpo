@@ -56,6 +56,9 @@ export const eventModalsSlice = createSlice({
       state.isReadEvent = false
       state.event = null
     },
+    editEvent(state, action: PayloadAction<Event>) {
+      state.event = action.payload
+    }
   }
 })
 
@@ -66,7 +69,8 @@ export const {
   openEditEventModal,
   closeAddEditEventModal,
   openReadEventModal,
-  closeReadEventModal
+  closeReadEventModal,
+  editEvent
 } = eventModalsSlice.actions
 
 export const selectmodalsState = (state: RootState): EventModalsType => state.modals
