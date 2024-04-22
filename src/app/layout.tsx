@@ -1,6 +1,9 @@
 // NEXT IMPORTS
 import type { Metadata } from 'next'
 
+// REACT-HOT-TOAST IMPORTS
+import { Toaster } from 'react-hot-toast'
+
 // COMPONENTS IMPORTS
 import AddEditEventModal from '@/components/modals/AddEditEventModal'
 import DeleteEventModal from '@/components/modals/DeleteEventModal'
@@ -27,6 +30,10 @@ export default function RootLayout({
     <html lang="en">
       <StoreProvider>
         <body className="h-screen w-screen overflow-hidden">
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+          />
           <AddEditEventModal />
           <DeleteEventModal />
           <EventDrawer />
