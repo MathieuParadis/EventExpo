@@ -6,6 +6,8 @@ import type { Event } from '@prisma/client'
 // DB IMPORTS
 import { db } from '@/db'
 
+const dynamic = 'force-dynamic'
+
 export async function fetchEvents(startTime: String | null = null): Promise<Event[]> {
   let whereClause = {}
 
