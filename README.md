@@ -35,6 +35,10 @@ The Event Manager Portal is designed to provide a seamless experience for both a
 6. Open your web browser and navigate to `http://localhost:3000`.
 
 
+## Production Link
+You can visit the live deployment of Event'EXPO at [Production Link](https://event-expo-one.vercel.app/).
+
+
 ## Technologies Used
 * NextJS
 * HTML5
