@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Event'EXPO
+Welcome to the Event'EXPO! This project aims to create a public-facing event page that showcases various events organized by your company. The page will feature an indication of public interest for each event, allowing visitors to express their interest with a simple click.
 
-## Getting Started
 
-First, run the development server:
+## Introduction
+The Event Manager Portal is designed to provide a seamless experience for both administrators and the public. Administrators can effortlessly create, edit, and delete events, while the public can explore upcoming events and express their interest in attending.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+## Installation and Setup
+1. Clone this repository to your local machine
+```
+	git clone https://github.com/MathieuParadis/EventExpo.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory
+```bash
+  cd EventExpo
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Install the package dependencies by running
+```
+  npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Create and seed the database
+```
+  npx prisma migrate dev --name init
+```
 
-## Learn More
+5. Start the server by running
+```
+  npm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Open your web browser and navigate to `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Production Link
+You can visit the live deployment of Event'EXPO at [Production Link](https://event-expo-one.vercel.app/).
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies Used
+* NextJS
+* HTML5
+* CSS3
+* Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Enhancements
+1. **Data Caching:** Implement caching to improve performance by reducing database queries, but ensure data is refreshed periodically to maintain accuracy.
+2. **Validation Schema:** Develop a robust validation schema for the event creation form to ensure data integrity and user input accuracy.
