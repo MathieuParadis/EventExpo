@@ -13,9 +13,8 @@ import moment from 'moment'
 import { Divider } from '@mui/material'
 import Drawer from '@mui/material/Drawer'
 
-// HOOKS IMPORTS
-import { useAppSelector, useAppDispatch } from '@/lib/hooks'
-import { closeReadEventModal } from '@/lib/features/eventModals/eventModalsSlice'
+// REACT-HOT-TOAST IMPORTS
+import { toast } from 'react-hot-toast'
 
 // ICONS IMPORTS
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined'
@@ -28,6 +27,11 @@ import DeleteEventBtn from '../buttons/DeleteEventBtn'
 import EditEventBtn from '../buttons/EditEventBtn'
 import EditInterestEventBtn from '../buttons/EditInterestEventBtn'
 
+// HOOKS IMPORTS
+import { useAppSelector, useAppDispatch } from '@/lib/hooks'
+import { closeReadEventModal } from '@/lib/features/eventModals/eventModalsSlice'
+import { markEventAsInterested } from '@/db/queries/events'
+
 const EventDrawer = (): JSX.Element => {
   const pathname = usePathname()
   const dispatch = useAppDispatch()
@@ -37,6 +41,18 @@ const EventDrawer = (): JSX.Element => {
 
   const closeReadModal = ():void => {
     dispatch(closeReadEventModal())
+  }
+
+  const handleMarkEventAsInterested = async (): Promise<void> => {
+    if (event != null) {
+      try {
+        await markEventAsInterested(event.id)
+        toast.success('Interest shared successfully')
+      } catch (error) {
+        console.error('Error while marking event as interested:', error)
+        toast.error('An error occured. Try again!')
+      }
+    }
   }
 
   useEffect(() => {
@@ -92,7 +108,7 @@ const EventDrawer = (): JSX.Element => {
             <div className="grow flex flex-col gap-2 md:gap-3 lg:gap-4">
               {isAdmin && <DeleteEventBtn event={event} />}
               {isAdmin && <EditEventBtn event={event} />}
-              {!isAdmin && <EditInterestEventBtn />}
+              {!isAdmin && <EditInterestEventBtn onClick={handleMarkEventAsInterested} />}
             </div>
           </div>
         </div>

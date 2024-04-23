@@ -9,6 +9,9 @@ import moment from 'moment'
 // MUI IMPORTS
 import Button from '@mui/material/Button'
 
+// REACT-HOT-TOAST IMPORTS
+import { toast } from 'react-hot-toast'
+
 // TYPES IMPORTS
 import type { Event } from '@prisma/client'
 
@@ -28,6 +31,7 @@ import {
   openEditEventModal,
   openReadEventModal
 } from '@/lib/features/eventModals/eventModalsSlice'
+import { markEventAsInterested } from '@/db/queries/events'
 
 interface Props {
   event: Omit<Event, 'createdAt' | 'updatedAt'>
@@ -47,6 +51,18 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
 
   const openReadModal = ():void => {
     dispatch(openReadEventModal(event))
+  }
+
+  const handleMarkEventAsInterested = async (): Promise<void> => {
+    if (event != null) {
+      try {
+        await markEventAsInterested(event.id)
+        toast.success('Interest shared successfully')
+      } catch (error) {
+        console.error('Error while marking event as interested:', error)
+        toast.error('An error occured. Try again!')
+      }
+    }
   }
 
   return (
@@ -86,7 +102,7 @@ const EventCard = ({ event, isAdmin = false }: Props): JSX.Element => {
             <Button
               className='focus:outline-none rounded bg-[var(--primary-color)] hover:bg-[var(--primary-color-darker)] text-white py-1 px-2 w-1/2'
               style={{ textTransform: 'capitalize', border: '1px solid var(--primary-color)' }}
-              onClick={() => alert('interested')}
+              onClick={handleMarkEventAsInterested}
             >
               I&#39;m interested
             </Button>

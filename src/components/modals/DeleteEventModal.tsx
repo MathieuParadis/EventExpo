@@ -26,7 +26,7 @@ const DeleteModal = (): JSX.Element => {
         await deleteEvent(event.id)
         toast.success('Event deleted successfully')
       } catch (error) {
-        console.error('Error deleting event:', error)
+        console.error('Error while deleting event:', error)
         toast.error('An error occured. Try again!')
       }
       closeDeleteModal()
