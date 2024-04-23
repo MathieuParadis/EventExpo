@@ -44,6 +44,17 @@ export async function editEvent(eventData: Omit<Event, 'createdAt' | 'updatedAt'
   })
 }
 
+export async function markEventAsInterested(id: number): Promise<void> {
+  await db.event.update({
+    where: { id },
+    data: {
+      interestCount: {
+        increment: 1
+      }
+    }
+  })
+}
+
 export async function deleteEvent(id: number): Promise<void> {
   await db.event.delete({
     where: {
